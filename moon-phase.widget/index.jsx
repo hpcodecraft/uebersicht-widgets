@@ -8,7 +8,7 @@ const SHOW_TEXT = true;
 export const command = undefined;
 
 // the refresh frequency in milliseconds
-export const refreshFrequency = 10 * 1000;
+export const refreshFrequency = 1 * 1000;
 
 // the CSS style for this widget, written using Emotion
 // https://emotion.sh/
@@ -71,6 +71,8 @@ export const render = () => {
   const phaseStr = phase_text(phase);
   const phaseLabel = phaseLabels[phaseStr]
   const cycleProgress = `Completed ${Math.round(phase * 100)}% of lunar cycle`;
+
+  console.log(phaseStr)
 
   return (
     <div className="widget">
@@ -160,7 +162,7 @@ function phase_text(phase) {
   } else if (phase <= 0.6875) {
     txt_phase = "phase_waning_gibbous";
   } else if (phase <= 0.8125) {
-    txt_phase = "phase_last_quarter";
+    txt_phase = "phase_third_quarter";
   } else if (phase <= 0.9375) {
     txt_phase = "phase_waning_crescent";
   }
@@ -175,6 +177,6 @@ var phaseLabels = {
   phase_waxing_gibbous: "Waxing gibbous moon",
   phase_full: "Full moon",
   phase_waning_gibbous: "Waning gibbous moon",
-  phase_last_quarter: "Third quarter moon",
+  phase_third_quarter: "Third quarter moon",
   phase_waning_crescent: "Waning crescent moon"
 };
